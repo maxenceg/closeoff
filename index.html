@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+
+    <title>Est-ce que c'est bientôt le close-off ?</title>
+    <meta
+      name="description"
+      content="Est-ce que c'est bientôt le close-off ?"
+    />
+    <meta name="author" content="SitePoint" />
+    <style>
+      h1 {
+        text-align: center;
+      }
+    </style>
+  </head>
+
+  <body>
+    <script>
+      let now = new Date();
+      console.log(now);
+      if (now.getDay() !== 5) {
+        document.body.innerHTML = "<h1>Pas vraiment, non.</h1>";
+      } else {
+        if (now.getHour() < 15) {
+          document.body.innerHTML =
+            "<h1>T'as encore le temps de travailler, t'inquiète.</h1>";
+        } else if (now.getHour() < 17) {
+          document.body.innerHTML = `<h1>Ne commence rien, attends patiemment le close-off.</h1>`;
+        } else if (now.getHour() < 18 && now.getMinute() < 30) {
+          let difference = (document.body.innerHTML = `<h1>Normalement dans ${difference} (crois-y).</h1>`);
+        } else if (now.getHour() < 17) {
+          document.body.innerHTML = `<h1>Normalement dans ${difference} (crois-y).</h1>`;
+        } else {
+          document.body.innerHTML = "<h1>Close-off dans 5'.</h1>";
+        }
+      }
+    </script>
+  </body>
+</html>
