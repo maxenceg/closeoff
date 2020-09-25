@@ -19,24 +19,28 @@
 
   <body>
     <script>
-      let now = new Date();
-      if (now.getDay() !== 5) {
-        document.body.innerHTML = "<h1>Pas vraiment, non.</h1>";
-      } else {
-        if (now.getHours() < 15) {
-          document.body.innerHTML =
-            "<h1>T'as encore le temps de travailler, t'inquiète.</h1>";
-        } else if (now.getHours() < 17) {
-          document.body.innerHTML = `<h1>Ne commence rien, attends patiemment le close-off.</h1>`;
-        } else if (now.getHours() < 18 && now.getMinutes() < 25) {
-          let difference = 30 - now.getMinutes();
-          document.body.innerHTML = `<h1>Normalement dans ${difference} minutes (crois-y).</h1>`;
-        } else if (now.getHours() < 18) {
-          document.body.innerHTML = `<h1>Close-off dans 5'.</h1>`;
+      function updateSentence() {
+        let now = new Date();
+        if (now.getDay() !== 5) {
+          document.body.innerHTML = "<h1>Pas vraiment, non.</h1>";
         } else {
-          document.body.innerHTML = "<h1>Là c'est bizarre quand même...</h1>";
+          if (now.getHours() < 15) {
+            document.body.innerHTML =
+              "<h1>T'as encore le temps de travailler, t'inquiète.</h1>";
+          } else if (now.getHours() < 17) {
+            document.body.innerHTML = `<h1>Ne commence rien, attends patiemment le close-off.</h1>`;
+          } else if (now.getHours() < 18 && now.getMinutes() < 25) {
+            let difference = 30 - now.getMinutes();
+            document.body.innerHTML = `<h1>Normalement dans ${difference} minutes (crois-y).</h1>`;
+          } else if (now.getHours() < 18) {
+            document.body.innerHTML = `<h1>Close-off dans 5'.</h1>`;
+          } else {
+            document.body.innerHTML = "<h1>Là c'est bizarre quand même...</h1>";
+          }
         }
       }
+      updateSentence();
+      setInterval(updateSentence, 60 * 1000);
     </script>
   </body>
 </html>
