@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
+import styled from "styled-components";
+import { Akinatotem } from "./Akinatotem/Akinatotem";
 import "./App.css";
-const fetch = require("node-fetch");
 
 function App() {
   const [sentence, setSentence] = useState("");
@@ -36,9 +37,16 @@ function App() {
     <div className="App">
       <header className="App-header">
         <p className="sentence">{sentence}</p>
+        <AkinatotemContainer>
+        <Akinatotem />
+        </AkinatotemContainer>
       </header>
     </div>
   );
 }
 
 export default App;
+
+const AkinatotemContainer = styled.div`
+  margin-top: 100px;
+`;
